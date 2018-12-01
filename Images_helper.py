@@ -21,7 +21,7 @@ def load_image(img_path,max_size,mean,std):
     
     return image
 def Tensor_to_Image(tensor,mean,std):
-        image = tensor.numpy().squeeze()
+        image = tensor.detach().numpy().squeeze() #must detach before calling numpy or runtime error occurs
         image = image.transpose(1,2,0)
         image = image * std + mean
         image = image.clip(0, 1)
