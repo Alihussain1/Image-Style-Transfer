@@ -9,7 +9,7 @@ def load_image(img_path,max_size,mean,std):
         size = max_size
     else:
         size = max(image.size)
-    transform = transforms.Compose([transforms.Resize(size),
+    transform = transforms.Compose([transforms.Resize([size,size]),
                                     transforms.ToTensor(),
                                     transforms.Normalize(mean,std)])
     #normalize(tensor, mean, std)
